@@ -1,0 +1,8 @@
+{
+	"name": "Shinobu",
+	"version": "1.0.0",
+	"description": "InNoHurryToCode's personal discord bot",
+	"main": "src/main.js",
+	"author": "InNoHurryToCode",
+	"license": "MIT"
+}
