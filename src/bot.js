@@ -1,6 +1,7 @@
 // https://medium.com/davao-js/2019-tutorial-creating-your-first-simple-discord-bot-47fc836a170b
 
 const Discord = require('discord.js');
+const auth = require('../db/auth.json');
 const client = new Discord.Client();
 
 const staticMessages = {
@@ -38,8 +39,9 @@ function update() {
 
 function init() {
     // bot token
-    client.login("NjY3NzM0ODExNDM5MjY3ODYw.XiHELA.EWGLU4mu5rBiDtCqVmGvdjMcmbs");
+    console.log(auth.token);
+    client.login(auth.token);
 }
 
-module.exports.init = init();
-module.exports.update = update();
+module.exports.init = init;
+module.exports.update = update;
