@@ -22,7 +22,7 @@ function onLogin() {
 }
 
 function onMessage(message) {
-    if (staticMessages[message.content] !== "undefined") {
+    if (typeof staticMessages[message.content] !== "undefined") {
         staticMessages[message.content](message);
     }
 }
