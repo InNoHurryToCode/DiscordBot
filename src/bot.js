@@ -1,5 +1,3 @@
-// https://medium.com/davao-js/2019-tutorial-creating-your-first-simple-discord-bot-47fc836a170b
-
 const Discord = require('discord.js');
 const auth = require('../db/auth.json');
 const client = new Discord.Client();
@@ -38,8 +36,6 @@ function update() {
 }
 
 function init() {
-    // bot token
-    console.log(auth.token);
     client.login(auth.token);
 }
 
