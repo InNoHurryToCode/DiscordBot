@@ -3,7 +3,7 @@ const users = {
     "senko-san": 218399895302832128
 };
 const channels = {
-    "help-en": 602532199228637185,
+    "help-en": 629765584187424782,
     "help-ru": 626151491282927627,
     "help-fr": 664914591368871936
 };
@@ -48,15 +48,15 @@ const staticMessages = {
     "good night": replyGoodnight,
     "nighty night night": replyGoodnight,
 };
-const helpMessages = {
-    "can somebody": replyHelp,
-    "how do i": replyHelp,
-    "what do i": replyHelp,
-    "when do i": replyHelp,
-    "why do i": replyHelp,
-    "somebody help me": replyHelp,
-    "!help": replyHelp
-}
+const helpMessages = [
+    "can somebody",
+    "how do i",
+    "what do i",
+    "when do i",
+    "why do i",
+    "somebody help me",
+    "!help"
+];
 
 function getRandomValue(array)
 {
@@ -82,9 +82,7 @@ function replyHelp(msg)
 {
     const channel = msg.channel.id;
 
-    if (channel === channels["help-en"]
-    || channel === channels["help-ru"]
-    || channel === channels["help-fr"]) {
+    if (channel === channels["help-en"] || channel === channels["help-ru"] || channel === channels["help-fr"]) {
         return;
     }
 
@@ -100,16 +98,16 @@ async function onUpdate(msg)
         replySleepnow(msg);
     }
 
-    for (key in staticMessages) {
+    for (let key in staticMessages) {
         if (msg.content.toLowerCase().split(" ").includes(key) && parseInt(msg.member.user.id) !== users["shinobu"]) {
             staticMessages[key](msg);
             return;
         }
     }
 
-    for (key in helpMessages) {
+    for (let key of helpMessages) {
         if (msg.content.toLowerCase().includes(key) && parseInt(msg.member.user.id) !== users["shinobu"]) {
-            helpMessages[key](msg);
+            replyHelp(msg);
             return;
         }
     }
