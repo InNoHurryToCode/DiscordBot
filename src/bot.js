@@ -1,28 +1,9 @@
-const Discord = require('discord.js');
+const client = new (require('discord.js')).Client();
 const auth = require('../db/auth.json');
-const client = new Discord.Client();
-
-const staticMessages = {
-    "hello": replyHello,
-    "goodnight": replyGoodnight
-}
-
-function replyHello(message) {
-    message.reply('hi!');
-}
-
-function replyGoodnight(message) {
-    message.reply('oyasumi!');
-}
+const message = require('./message.js');
 
 function onLogin() {
     console.log(`Logged in as ${client.user.tag}!`);
-}
-
-function onMessage(message) {
-    if (typeof staticMessages[message.content] !== "undefined") {
-        staticMessages[message.content](message);
-    }
 }
 
 function update() {
@@ -31,7 +12,7 @@ function update() {
     });
     
     client.on('message', msg => {
-        onMessage(msg);
+        message.onUpdate(msg);
     });
 }
 
