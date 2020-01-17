@@ -5,4 +5,8 @@
 	"main": "src/main.js",
 	"author": "InNoHurryToCode",
 	"license": "MIT"
+	"dependencies": {
+		"discord.js": "^11.5.1",
+		"node-opus": "^0.3.3"
+	}
 }
