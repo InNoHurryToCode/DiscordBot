@@ -1,10 +1,10 @@
 {
-	"name": "Shinobu",
+	"name": "shinobu",
 	"version": "1.0.0",
 	"description": "InNoHurryToCode's personal discord bot",
 	"main": "src/main.js",
 	"author": "InNoHurryToCode",
-	"license": "MIT"
+	"license": "MIT",
 	"dependencies": {
 		"discord.js": "^11.5.1",
 		"node-opus": "^0.3.3"
