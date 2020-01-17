@@ -22,7 +22,7 @@ const msgGoodnight = [
     "see you soon!",
     "sleep well"
 ];
-const msgSleepnow = [
+const msgSleep = [
     "sleep now, you've worked hard enough already",
     "get some sleep, you deserve it",
     "you should sleep...",
@@ -73,9 +73,9 @@ function replyGoodnight(msg)
     msg.reply(getRandomValue(msgGoodnight));
 }
 
-function replySleepnow(msg)
+function replySleep(msg)
 {
-    msg.reply(getRandomValue(msgSleepnow));
+    msg.reply(getRandomValue(msgSleep));
 }
 
 function replyHelp(msg)
@@ -95,7 +95,7 @@ async function onUpdate(msg)
 
     if (parseInt(msg.member.user.id) === users["senko-san"] && (hour < 7))
     {
-        replySleepnow(msg);
+        replySleep(msg);
     }
 
     for (let key in staticMessages) {

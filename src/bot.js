@@ -1,5 +1,5 @@
 const client = new (require('discord.js')).Client();
-const auth = require('../db/auth.json');
+const auth = require('../auth.json');
 const message = require('./message.js');
 const guild = require('./guild.js');
 
