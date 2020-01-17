@@ -47,6 +47,11 @@ const staticMessages = {
     "goodnight": replyGoodnight,
     "good night": replyGoodnight,
     "nighty night night": replyGoodnight,
+
+    // commands
+    "!hi": replyHello,
+    "!gn": replyGoodnight,
+    "!help": replyHelp,
 };
 const helpMessages = [
     "can somebody",
@@ -55,7 +60,10 @@ const helpMessages = [
     "when do i",
     "why do i",
     "somebody help me",
-    "!help"
+    "someone help me",
+    
+    "i need some help",
+    "i need help",
 ];
 
 function getRandomValue(array)
