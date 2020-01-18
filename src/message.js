@@ -1,3 +1,5 @@
+const guild = require('./guild.js');
+
 const users = {
     "shinobu": 667734811439267860,
     "senko-san": 218399895302832128
@@ -31,10 +33,10 @@ const msgSleep = [
     "it's already late, time to go to bed"
 ];
 const msgHelp = [
-    "please use discord search and check the #help channel!",
-    "ask questions in the #help channel!",
-    "try searching your question first and ask it in the #help channel",
-    "can you please ask your question in the #help channel?"  
+    "please use discord search and check the __REPLACEME__ channel!",
+    "ask questions in the __REPLACEME__ channel!",
+    "try searching your question first and ask it in the __REPLACEME__ channel",
+    "can you please ask your question in the __REPLACEME__ channel?"  
 ];
 const staticMessages = {
     // hello
@@ -43,7 +45,6 @@ const staticMessages = {
 
     // goodnight
     "gn": replyGoodnight,
-    "night": replyGoodnight,
     "goodnight": replyGoodnight,
     "good night": replyGoodnight,
     "nighty night night": replyGoodnight,
@@ -59,6 +60,7 @@ const helpMessages = [
     "what do i",
     "when do i",
     "why do i",
+    "where do i",
     "somebody help me",
     "someone help me",
     
@@ -86,15 +88,10 @@ function replySleep(msg)
     msg.reply(getRandomValue(msgSleep));
 }
 
-function replyHelp(msg)
+async function replyHelp(msg)
 {
-    const channel = msg.channel.id;
-
-    if (channel === channels["help-en"] || channel === channels["help-ru"] || channel === channels["help-fr"]) {
-        return;
-    }
-
-    msg.reply(getRandomValue(msgHelp));
+    const helpChannelName = (await guild.getChannel(channels["help-en"])).toString();
+    msg.reply(getRandomValue(msgHelp).replace("__REPLACEME__", helpChannelName));
 }
 
 async function onUpdate(msg)
@@ -106,17 +103,27 @@ async function onUpdate(msg)
         replySleep(msg);
     }
 
-    for (let key in staticMessages) {
-        if (msg.content.toLowerCase().split(" ").includes(key) && parseInt(msg.member.user.id) !== users["shinobu"]) {
+    for (let key in staticMessages)
+    {
+        if (msg.content.toLowerCase().split(" ").includes(key) && parseInt(msg.member.user.id) !== users["shinobu"])
+        {
             staticMessages[key](msg);
             return;
         }
     }
 
-    for (let key of helpMessages) {
-        if (msg.content.toLowerCase().includes(key) && parseInt(msg.member.user.id) !== users["shinobu"]) {
-            replyHelp(msg);
-            return;
+    for (let key of helpMessages)
+    {
+        if (msg.content.toLowerCase().includes(key) && parseInt(msg.member.user.id) !== users["shinobu"])
+        {
+            const channel = parseInt(msg.channel.id);
+
+            if (channel === channels["help-en"] || channel === channels["help-ru"] || channel === channels["help-fr"])
+            {
+                return;
+            }
+
+            await replyHelp(msg);
         }
     }
 }
