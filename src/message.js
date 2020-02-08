@@ -36,7 +36,7 @@ const msgSleep = [
 ];
 const msgHelp = [
     "please use discord search and check the __REPLACEME__ channel!",
-    "ask questions in the __REPLACEME__ channel!",
+    "ask questiognns in the __REPLACEME__ channel!",
     "try searching your question first and ask it in the __REPLACEME__ channel",
     "can you please ask your question in the __REPLACEME__ channel?"  
 ];
@@ -66,7 +66,7 @@ const msgMoneyErrors = [ new RichEmbed()
 ]
 const msgSaves = [ new RichEmbed()
     .setColor(0x007DFF)
-    .addField('Save Editing', 'You can edit your profile by going to `serverdir\\user\\profiles\\id\\character.json`\nUse other text editor like Notepad++ or Sublime Text 3 to open the file.\nYou can pretty much edit everything to your own liking. Just make sure you know what you\'re doing and which part to edit.\n\nExample 1: If you want to edit Skills, you can go to `Skills` section and change `Progress` value to `5100`. This will max your character skills\n\nExample 2: if you want to shorter the Hideout upgrade time, go to `Hideout` section and change `constructionTime` value to `10`.\n\n**ALWAYS BACKUP THE PROFILE BEFORE ATTEMPTING TO EDIT YOUR SAVE FILES! YOU\'VE BEEN WARNED**\n')
+    .addField('Save Editing', 'You can edit your profile by going to `serverdir\\user\\profiles\\id\\character.json`\nUse other text editor like Notepad++ or Sublime Text 3 to open the file.\nYou can pretty much edit everything to your own liking. Just make sure you know what you\'re doing and which part to edit.\n\nExample 1: If you want to edit Skills, you can go to `Skills` section and change `Progress` value to `5100`. This will max your character skills\n\nExample 2: if you want to shorter the Hideout upgrade time, go to `Hideout` section. Find the ones that you\'re upgrading. You can tell which one by looking at the `"Constructing": True`. Then change its `CompleteTime` value to something lower like `10`.\n\n**ALWAYS BACKUP THE PROFILE BEFORE ATTEMPTING TO EDIT YOUR SAVE FILES! YOU\'VE BEEN WARNED**\n')
 ];
 const msgQuestRewards = [ new RichEmbed()
     .setColor(0x007DFF)
