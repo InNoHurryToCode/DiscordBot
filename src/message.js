@@ -36,7 +36,7 @@ const msgSleep = [
 ];
 const msgHelp = [
     "please use discord search and check the __REPLACEME__ channel!",
-    "ask questiognns in the __REPLACEME__ channel!",
+    "ask questions in the __REPLACEME__ channel!",
     "try searching your question first and ask it in the __REPLACEME__ channel",
     "can you please ask your question in the __REPLACEME__ channel?"  
 ];
